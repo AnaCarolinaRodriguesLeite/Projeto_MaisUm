@@ -17,7 +17,7 @@ namespace MaisUm_Projeto.Tests.Controllers
         public void Get()
         {
             // Organizar
-            ValuesController controller = new ValuesController();
+            UsuariosController controller = new UsuariosController();
 
             // Agir
             IEnumerable<string> result = controller.Get();
@@ -33,7 +33,7 @@ namespace MaisUm_Projeto.Tests.Controllers
         public void GetById()
         {
             // Organizar
-            ValuesController controller = new ValuesController();
+            UsuariosController controller = new UsuariosController();
 
             // Agir
             string result = controller.Get(5);
@@ -46,7 +46,7 @@ namespace MaisUm_Projeto.Tests.Controllers
         public void Post()
         {
             // Organizar
-            ValuesController controller = new ValuesController();
+            UsuariosController controller = new UsuariosController();
 
             // Agir
             controller.Post("value");
@@ -58,7 +58,7 @@ namespace MaisUm_Projeto.Tests.Controllers
         public void Put()
         {
             // Organizar
-            ValuesController controller = new ValuesController();
+            UsuariosController controller = new UsuariosController();
 
             // Agir
             controller.Put(5, "value");
@@ -70,7 +70,7 @@ namespace MaisUm_Projeto.Tests.Controllers
         public void Delete()
         {
             // Organizar
-            ValuesController controller = new ValuesController();
+            UsuariosController controller = new UsuariosController();
 
             // Agir
             controller.Delete(5);

@@ -10,7 +10,7 @@ namespace MaisUm_Projeto.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            ViewBag.Title = "Mais Um";
 
             return View();
         }

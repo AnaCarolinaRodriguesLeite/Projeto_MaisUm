@@ -19,14 +19,14 @@ namespace MaisUm_Projeto.Controllers
         // GET: api/Alimentacao
         public IHttpActionResult GetAlimentacoes()
         {
-            var alimentacoes = _context.Alimentacao.ToList();
-            return Ok(alimentacoes);
+            var alimentacao = _context.Alimentacoes.ToList();
+            return Ok(alimentacao);
         }
 
         [HttpGet]
         public IHttpActionResult GetAlimentacao(int id)
         {
-            var alimentacao = _context.Alimentacao.SingleOrDefault(a => a.AlimentacaoId == id);
+            var alimentacao = _context.Alimentacoes.SingleOrDefault(a => a.AlimentacaoId == id);
 
             if (alimentacao == null)
                 return NotFound();
@@ -40,7 +40,7 @@ namespace MaisUm_Projeto.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            _context.Alimentacao.Add(alimentacao);
+            _context.Alimentacoes.Add(alimentacao);
             _context.SaveChanges();
 
             return Created(new Uri(Request.RequestUri + "/" + alimentacao.AlimentacaoId), alimentacao);
@@ -49,7 +49,7 @@ namespace MaisUm_Projeto.Controllers
         [HttpPut]
         public IHttpActionResult PutAlimentacao(int id, [FromBody] Alimentacao alimentacao)
         {
-            var alimentacaoInDb = _context.Alimentacao.SingleOrDefault(a => a.AlimentacaoId == id);
+            var alimentacaoInDb = _context.Alimentacoes.SingleOrDefault(a => a.AlimentacaoId == id);
 
             if (alimentacaoInDb == null)
                 return NotFound();
@@ -64,12 +64,12 @@ namespace MaisUm_Projeto.Controllers
         [HttpDelete]
         public IHttpActionResult DeleteAlimentacao(int id)
         {
-            var alimentacaoInDb = _context.Alimentacao.SingleOrDefault(a => a.AlimentacaoId == id);
+            var alimentacaoInDb = _context.Alimentacoes.SingleOrDefault(a => a.AlimentacaoId == id);
 
             if (alimentacaoInDb == null)
                 return NotFound();
 
-            _context.Alimentacao.Remove(alimentacaoInDb);
+            _context.Alimentacoes.Remove(alimentacaoInDb);
             _context.SaveChanges();
             return Ok();
         }

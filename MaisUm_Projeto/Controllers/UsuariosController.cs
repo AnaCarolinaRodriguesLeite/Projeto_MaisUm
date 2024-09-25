@@ -45,7 +45,7 @@ namespace MaisUm_Projeto.Controllers
         //    return Created(new Uri(Request.RequestUri + "/" + usuario.UsuarioId), usuario);
         //}
 
-        public IHttpActionResult PostUsuario([FromBody] Usuario usuario)
+        public IHttpActionResult PostUsuario([FromBody] Usuarios usuario)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -80,7 +80,7 @@ namespace MaisUm_Projeto.Controllers
 
 
         // PUT: api/Usuarios/5
-        public IHttpActionResult PutUsuario(int id, [FromBody] Usuario usuarioAtualizado)
+        public IHttpActionResult PutUsuario(int id, [FromBody] Usuarios usuarioAtualizado)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -92,7 +92,6 @@ namespace MaisUm_Projeto.Controllers
             usuarioInDb.Nome = usuarioAtualizado.Nome;
             usuarioInDb.Email = usuarioAtualizado.Email;
             usuarioInDb.Senha = usuarioAtualizado.Senha;
-            usuarioInDb.DataNascimento = usuarioAtualizado.DataNascimento;
             //usuarioInDb.DataCadastro = usuarioAtualizado.DataCadastro;
 
             _context.SaveChanges();

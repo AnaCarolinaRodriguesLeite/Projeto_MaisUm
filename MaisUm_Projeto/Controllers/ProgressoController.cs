@@ -16,7 +16,7 @@ namespace MaisUm_Projeto.Controllers
         }
 
         [HttpGet]
-        public IHttpActionResult GetProgresso()
+        public IHttpActionResult GetProgressos()
         {
             var progresso = _context.Progresso.ToList();
             return Ok(progresso);
@@ -26,22 +26,30 @@ namespace MaisUm_Projeto.Controllers
         public IHttpActionResult GetProgresso(int id)
         {
             var progresso = _context.Progresso.SingleOrDefault(p => p.ProgressoId == id);
-
             if (progresso == null)
-                throw new EntryPointNotFoundException();
-
+                return NotFound();
             return Ok(progresso);
         }
 
         [HttpPost]
-        public IHttpActionResult PostProgresso([FromBody] Progresso progresso)
+        //public IHttpActionResult PostProgresso([FromBody] Progresso progresso)
+        //{
+        //    if (!ModelState.IsValid)
+        //        return BadRequest(ModelState);
+
+        //    _context.Progresso.Add(progresso);
+        //    _context.SaveChanges();
+
+        //    return Created(new Uri(Request.RequestUri + "/" + progresso.ProgressoId), progresso);
+        //}
+
+        public IHttpActionResult Post([FromBody] Progresso progresso)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            if (progresso == null)
+                return BadRequest("Progresso inválido.");
 
             _context.Progresso.Add(progresso);
             _context.SaveChanges();
-
             return Created(new Uri(Request.RequestUri + "/" + progresso.ProgressoId), progresso);
         }
 

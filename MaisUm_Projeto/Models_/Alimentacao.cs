@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MaisUm_Projeto.Models_
 {
@@ -11,8 +12,8 @@ namespace MaisUm_Projeto.Models_
         public string Tipo { get; set; }
         public string Descricao { get; set; }
         public int Calorias { get; set; }
-        public DateTime Data { get; set; }
+        public String Data { get; set; }
 
-        public Usuario Usuario { get; set; }
+        public Usuarios Usuario { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using MaisUm_Projeto.Models_;
 using System.Web.Http;
 using MaisUm_Projeto.Models_.Data;
+using System;
 
 namespace MaisUm_Projeto.Controllers
 {
@@ -31,19 +32,21 @@ namespace MaisUm_Projeto.Controllers
             }
 
             // POST: api/AtividadesFisicas
-            public IHttpActionResult Post([FromBody] AtividadeFisica atividade)
+            public IHttpActionResult Post([FromBody] AtividadesFisica atividade)
             {
                 if (atividade == null)
                     return BadRequest("Atividade inválida.");
 
                 _context.AtividadesFisicas.Add(atividade);
-                return Ok(atividade);
-            }
+                _context.SaveChanges();
+                return Created(new Uri(Request.RequestUri + "/" + atividade.AtividadeId), atividade);
+        }
 
             // PUT: api/AtividadesFisicas/5
-            public IHttpActionResult Put(int id, [FromBody] AtividadeFisica atividadeAtualizada)
+            public IHttpActionResult Put(int id, [FromBody] AtividadesFisica atividadeAtualizada)
             {
-                var atividade = _context.AtividadesFisicas.FirstOrDefault(a => a.AtividadeId == id);
+                var atividade = _context.AtividadesFisicas.SingleOrDefault(a => a.AtividadeId == id);
+                
                 if (atividade == null)
                     return NotFound();
 
@@ -51,6 +54,7 @@ namespace MaisUm_Projeto.Controllers
                 atividade.Data = atividadeAtualizada.Data;
                 atividade.DuracaoMinutos = atividadeAtualizada.DuracaoMinutos;
 
+                _context.SaveChanges();
                 return Ok(atividade);
             }
 

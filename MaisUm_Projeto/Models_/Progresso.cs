@@ -7,10 +7,10 @@ namespace MaisUm_Projeto.Models_
         [Key]
         public int ProgressoId { get; set; }
         public int UsuarioId { get; set; }
-        public float Peso { get; set; }
+        public decimal Peso { get; set; }
         public string Data { get; set; }
         public string Observacoes { get; set; }
 
-        public Usuario Usuario { get; set; }
+        public Usuarios Usuario { get; set; }
     }
 }

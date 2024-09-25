@@ -8,7 +8,7 @@ namespace MaisUm_Projeto.Controllers
 {
     public class ProgressoController : ApiController
     {
-        private ApplicationDbContext _context;
+        public ApplicationDbContext _context;
 
         public ProgressoController()
         {
@@ -32,17 +32,6 @@ namespace MaisUm_Projeto.Controllers
         }
 
         [HttpPost]
-        //public IHttpActionResult PostProgresso([FromBody] Progresso progresso)
-        //{
-        //    if (!ModelState.IsValid)
-        //        return BadRequest(ModelState);
-
-        //    _context.Progresso.Add(progresso);
-        //    _context.SaveChanges();
-
-        //    return Created(new Uri(Request.RequestUri + "/" + progresso.ProgressoId), progresso);
-        //}
-
         public IHttpActionResult Post([FromBody] Progresso progresso)
         {
             if (progresso == null)

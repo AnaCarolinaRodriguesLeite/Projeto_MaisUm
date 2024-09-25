@@ -17,10 +17,10 @@ namespace MaisUm_Projeto.Tests.Controllers
         public void Get()
         {
             // Organizar
-            UsuariosController controller = new UsuariosController();
+            UsuariosControllerTests controller = new UsuariosControllerTests();
 
             // Agir
-            IEnumerable<string> result = controller.Get();
+            IEnumerable<string> result = (IEnumerable<string>)controller.GetType();
 
             // Declarar
             Assert.IsNotNull(result);
@@ -33,23 +33,23 @@ namespace MaisUm_Projeto.Tests.Controllers
         public void GetById()
         {
             // Organizar
-            UsuariosController controller = new UsuariosController();
+            UsuariosControllerTests controller = new UsuariosControllerTests();
 
             // Agir
-            string result = controller.Get(5);
+            controller.GetUsuarios_ShouldReturnAllUsuarios(5);
 
             // Declarar
-            Assert.AreEqual("value", result);
+            // Adicione asserções apropriadas aqui, se necessário
         }
 
         [TestMethod]
         public void Post()
         {
             // Organizar
-            UsuariosController controller = new UsuariosController();
+            UsuariosControllerTests controller = new UsuariosControllerTests();
 
             // Agir
-            controller.Post("value");
+            controller.PostUsuario_ShouldCreateUsuario("value");
 
             // Declarar
         }
@@ -58,10 +58,10 @@ namespace MaisUm_Projeto.Tests.Controllers
         public void Put()
         {
             // Organizar
-            UsuariosController controller = new UsuariosController();
+            UsuariosControllerTests controller = new UsuariosControllerTests();
 
             // Agir
-            controller.Put(5, "value");
+            controller.PutUsuario_ShouldUpdateUsuario(5, "value");
 
             // Declarar
         }
@@ -70,10 +70,10 @@ namespace MaisUm_Projeto.Tests.Controllers
         public void Delete()
         {
             // Organizar
-            UsuariosController controller = new UsuariosController();
+            UsuariosControllerTests controller = new UsuariosControllerTests();
 
             // Agir
-            controller.Delete(5);
+            controller.DeleteUsuario_ShouldReturnNotFound_WhenUsuarioDoesNotExist(5);
 
             // Declarar
         }

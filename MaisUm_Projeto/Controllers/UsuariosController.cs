@@ -8,7 +8,7 @@ namespace MaisUm_Projeto.Controllers
 {
     public class UsuariosController : ApiController
     {
-        private ApplicationDbContext _context;
+        public ApplicationDbContext _context;
 
         public UsuariosController()
         {
@@ -33,47 +33,13 @@ namespace MaisUm_Projeto.Controllers
         }
 
         // POST: api/Usuarios
-        //public IHttpActionResult PostUsuario([FromBody] Usuario usuario)
-        //{
-
-        //    if (!ModelState.IsValid)
-        //        return BadRequest(ModelState);
-
-        //    _context.Usuarios.Add(usuario);
-        //    _context.SaveChanges();
-
-        //    return Created(new Uri(Request.RequestUri + "/" + usuario.UsuarioId), usuario);
-        //}
-
         public IHttpActionResult PostUsuario([FromBody] Usuarios usuario)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            if (usuario == null)
+                return BadRequest("Usuário inválido.");
 
             _context.Usuarios.Add(usuario);
-
-            try
-            {
-                _context.SaveChanges();
-            }
-            catch (System.Data.Entity.Core.UpdateException e)
-            {
-                // Log ou manipulação do erro de Update
-                Console.WriteLine(e.InnerException);
-                return InternalServerError(e);
-            }
-            catch (System.Data.Entity.Infrastructure.DbUpdateException ex) //DbContext
-            {
-                // Log ou manipulação do erro de Update
-                Console.WriteLine(ex.InnerException);
-                return InternalServerError(ex);
-            }
-            catch (Exception ex)
-            {
-                // Log ou manipulação de outros erros
-                Console.WriteLine(ex.InnerException);
-                throw;
-            }
+            _context.SaveChanges();
 
             return Created(new Uri(Request.RequestUri + "/" + usuario.UsuarioId), usuario);
         }

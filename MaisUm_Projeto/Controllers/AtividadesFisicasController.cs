@@ -8,7 +8,7 @@ namespace MaisUm_Projeto.Controllers
 {
     public class AtividadesFisicasController : ApiController
     {
-        private ApplicationDbContext _context;
+        public ApplicationDbContext _context;
 
             public AtividadesFisicasController()
             {

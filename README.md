@@ -1,4 +1,4 @@
-# MaisUm
+# MaisUm 💪
 
 O **MaisUm** é uma plataforma de gestão de atividades físicas e alimentação, projetada para ajudar usuários a monitorar e melhorar seus hábitos de saúde e bem-estar. A ideia surgiu da necessidade crescente de controlar não apenas as atividades físicas, mas também a alimentação, de forma integrada e acessível.
 
